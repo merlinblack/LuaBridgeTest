@@ -3,8 +3,8 @@
 #
 LIBS=-L/home/nigel/prog/local/lib -llua -ldl
 CXXFLAGS=-g -Wall -Wno-deprecated -I/home/nigel/prog/local/include -I../../LuaBridge/Source/LuaBridge/
-EXECUTABLE=caller
-SOURCES=caller.cpp
+EXECUTABLE=luamemberoveride
+SOURCES=luamemberoveride.cpp
 OBJDIR=obj
 DEPDIR=deps
 
