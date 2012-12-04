@@ -54,7 +54,7 @@ void test( lua_State* L )
         "    return\n"
         "end\n"
         "function MyHandler()\n"
-        "    print 'SomeMemeber Overidden by Lua'\n"
+        "    print 'SomeMember Overidden by Lua'\n"
         "end\n"
         "";
 
