@@ -18,7 +18,10 @@ class Rectangle
     int _x, _y, _width, _height;
 
     public:
-    Rectangle( int x, int y, int w, int h ) : _x(x), _y(y), _width(w), _height(h) {}
+    Rectangle( int x, int y, int w, int h ) : _x(x), _y(y), _width(w), _height(h)
+    {
+        cout << "Created Rectangle" << endl;
+    }
 
     bool isInside( int tx, int ty )
     {
