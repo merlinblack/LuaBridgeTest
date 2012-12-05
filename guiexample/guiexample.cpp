@@ -48,7 +48,7 @@ void test( lua_State* L )
 
     if( luaL_dofile( L, "test.lua" ) )
     {
-        cout << lua_tostring( L, -1 );
+        cout << lua_tostring( L, -1 ) << endl;
         lua_pop( L, 1 );
         return;
     }
