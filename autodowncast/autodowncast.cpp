@@ -53,6 +53,8 @@ void test( lua_State* L )
         "end\n"
         "";
 
+    cout << source << endl;
+
     if( luaL_dostring( L, source ) )
     {
         cout << lua_tostring( L, -1 );

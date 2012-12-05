@@ -2,6 +2,6 @@
 obj
 deps
 gitversioning.h
-calling
-autodowncast
-luamemberoveride
+calling/calling
+autodowncast/autodowncast
+luamemberoveride/luamemberoveride

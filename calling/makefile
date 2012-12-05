@@ -2,7 +2,7 @@
 # ###################################################################
 #
 LIBS=-L/home/nigel/prog/local/lib -llua -ldl
-CXXFLAGS=-g -Wall -Wno-deprecated -I/home/nigel/prog/local/include -I../../LuaBridge/Source/LuaBridge/
+CXXFLAGS=-g -Wall -Wno-deprecated -I/home/nigel/prog/local/include
 EXECUTABLE=caller
 SOURCES=caller.cpp
 OBJDIR=obj
