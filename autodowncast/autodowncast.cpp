@@ -106,5 +106,7 @@ int main()
 
     test( L );
 
+    lua_close( L );
+
     return EXIT_SUCCESS;
 }
