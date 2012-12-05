@@ -10,14 +10,16 @@ Widget.__index = Widget
 
 -- Some Syntactic Sugar, calling a Class table is like calling it's create method.
 -- Note here 'self' is the class table.
-function Widget:__call(...)
-    return self:Create(...)
+function Widget.__call( class, ...)
+    print( ... )
+    return class.Create(...)
 end
 
 -- Initialisation for all widgets
 function Widget:init( x, y, w, h, name )
+    print( 'Initialising ' .. name )
     self.name = name
-    self.rect = GUI.Rectangle( self.x, self.y, self.w, self.h )
+    self.rect = GUI.Rectangle( x, y, w, h )
     self.key = ''
     self.hover = false
     self.children = {}
@@ -144,7 +146,7 @@ function Button:OnHoverExit()
     print( self.name .. ' Extinguished!' )
 end
 
-function Button:Create( x, y, text )
+function Button.Create( x, y, text )
     local btn = {}
     setmetatable( btn, Button )
     btn:init( x, y, text )
@@ -158,7 +160,7 @@ DialogBox.__index = DialogBox
 DialogBox.__base = Widget
 setmetatable( DialogBox, Widget )
 
-function DialogBox:Create( x, y, w, h, title )
+function DialogBox.Create( x, y, w, h, title )
     local dlg = {}
     setmetatable( dlg, DialogBox )
     dlg:init( x, y, w, h, 'DialogBox ' .. title )
