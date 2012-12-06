@@ -9,7 +9,6 @@ Widget = {}
 Widget.__index = Widget
 
 -- Some Syntactic Sugar, calling a Class table is like calling it's create method.
--- Note here 'self' is the class table.
 function Widget.__call( class, ...)
     print( ... )
     return class.Create(...)
@@ -25,7 +24,7 @@ function Widget:init( x, y, w, h, name )
     self.children = {}
 end
 
--- Normalally these should do nothing unless overriden, however we're doing a demo here!
+-- Normally these should do nothing unless overriden, however we're doing a demo here!
 function Widget:OnAction()         print( self.name .. ' OnAction' )         end
 function Widget:OnKeyPress()       print( self.name .. ' OnKeyPress' ) return self:OnAction() end
 function Widget:OnClick()          print( self.name .. ' OnClick' )    return self:OnAction() end
@@ -116,6 +115,7 @@ end
 function Widget:AddChild( child )
     if type( child.MouseMove ) == 'function' then -- Very basic check
         table.insert( self.children, child )
+        child.parent = self
     else
         error( 'Not a valid type of Widget!' )
     end
