@@ -1,3 +1,4 @@
+print( 'Using ' .. _VERSION )
 -- Mouse enumeration
 Mouse = {}
 Mouse.Button = {}
