@@ -1,8 +1,8 @@
 # Nigels wizzzy "simple" makefile
 # ###################################################################
 #
-LIBS=-L/home/nigel/prog/local/lib -llua -ldl
-CXXFLAGS=-g -Wall -Wno-deprecated -I/home/nigel/prog/local/include
+LIBS=-L$(HOME)/prog/local/lib -llua -ldl
+CXXFLAGS=-g -Wall -Wno-deprecated -I$(HOME)/prog/local/include
 EXECUTABLE=luamemberoveride
 SOURCES=luamemberoveride.cpp
 OBJDIR=obj

@@ -12,7 +12,7 @@ fi
 
 echo "Git Versioning Using: $VERSION"
 
-TEMP=$(mktemp) || exit
+TEMP=$(mktemp GitVersioning.XXXXXX) || exit
 trap "rm -f -- '$TEMP'" EXIT
 
 cat > $TEMP << ENDOFDOC
