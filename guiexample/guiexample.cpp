@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <string.h>
 #include <lua.hpp>
