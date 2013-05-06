@@ -67,7 +67,7 @@ function Widget:MouseClick( button, x, y )
             end
         end
 
-        print( 'No child handled click' )
+        print( self.name .. ' No child handled click' )
 
         if button == Mouse.Button.Left then
             return self:OnClick()
