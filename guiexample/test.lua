@@ -6,6 +6,11 @@ Mouse.Button.Left = 1
 Mouse.Button.Right = 2
 
 -- Widget Base Class
+-- This provides members and methods for all GUI objects that will be feed user input.
+-- These objects usally represent an interface item, but in some rare cases may not have
+-- any visual element at all.
+-- More specialised classes will be derived from this one.
+--
 Widget = {}
 Widget.__index = Widget
 
@@ -25,7 +30,7 @@ function Widget:init( x, y, w, h, name )
     self.children = {}
 end
 
--- Normally these should do nothing unless overriden, however we're doing a demo here!
+-- Normally these should do nothing unless overridden, however we're doing a demo here!
 function Widget:OnAction()         print( self.name .. ' OnAction' )         end
 function Widget:OnKeyPress()       print( self.name .. ' OnKeyPress' ) return self:OnAction() end
 function Widget:OnClick()          print( self.name .. ' OnClick' )    return self:OnAction() end
@@ -97,7 +102,8 @@ end
 
 -- Simpler, faster, version of MouseMove that assumes
 -- that as the mouse is outside the parent widget, it is
--- outside this widget, and therefor the mouse is lost.
+-- outside this widget, and therefor the mouse is lost,
+-- and informs it's children.
 --
 function Widget:MouseLost()
     print( self.name .. ' has lost the mouse.' )
@@ -172,7 +178,7 @@ end
 -------------------------------------------------------------------------------
 
 function test()
-    -- A dilog box with two buttons.
+    -- A dialog box with two buttons.
 
     mybox = DialogBox( 10, 10, 500, 300, '"Save Game?"' )
     ok = Button( 20, 150, 'Ok' )
@@ -180,7 +186,7 @@ function test()
     mybox:AddChild( ok )
     mybox:AddChild( cancel )
 
-    print ( 'User moves outside dialog box' )
+    print ( 'User moves to outside dialog box' )
     mybox:MouseMove( 5, 5 )
     print( '-------------------------------------' )
 
