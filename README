@@ -18,7 +18,7 @@
                           
 
 A bunch of small concept programs to trial various things
-luabridge.
+with luabridge.
 
 autodowncast:
 Not as 'automatic' as LuaBind, however lets you test if a
