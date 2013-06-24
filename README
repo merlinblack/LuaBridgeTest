@@ -1,0 +1,38 @@
+ _   _  _               _  _     
+| \ | |(_)  __ _   ___ | |( )___ 
+|  \| || | / _` | / _ \| ||// __|
+| |\  || || (_| ||  __/| |  \__ \
+|_| \_||_| \__, | \___||_|  |___/
+           |___/                 
+ _                   ____         _      _              
+| |    _   _   __ _ | __ )  _ __ (_)  __| |  __ _   ___ 
+| |   | | | | / _` ||  _ \ | '__|| | / _` | / _` | / _ \
+| |___| |_| || (_| || |_) || |   | || (_| || (_| ||  __/
+|_____|\__,_| \__,_||____/ |_|   |_| \__,_| \__, | \___|
+                                            |___/       
+ _____           _        
+|_   _|___  ___ | |_  ___ 
+  | | / _ \/ __|| __|/ __|
+  | ||  __/\__ \| |_ \__ \
+  |_| \___||___/ \__||___/
+                          
+
+A bunch of small concept programs to trial various things
+luabridge.
+
+autodowncast:
+Not as 'automatic' as LuaBind, however lets you test if a
+class is actually a derived class and cast it downwards.
+
+calling:
+No rocket science here. Just sanity checking calling a Lua
+function via LuaRef.
+
+enumtable:
+Store constants somewhere handy...
+
+guiexample:
+How a GUI routing system might be done.
+
+luamemberoveride:
+Using a LuaRef to override a C++ member with a Lua one.
