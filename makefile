@@ -4,6 +4,7 @@ all:
 	$(MAKE) -C autodowncast
 	$(MAKE) -C calling
 	$(MAKE) -C guiexample
+	$(MAKE) -C enumtable
 
 .PHONY: clean
 clean:
@@ -11,3 +12,4 @@ clean:
 	$(MAKE) -C autodowncast clean
 	$(MAKE) -C calling clean
 	$(MAKE) -C guiexample clean
+	$(MAKE) -C enumtable clean
