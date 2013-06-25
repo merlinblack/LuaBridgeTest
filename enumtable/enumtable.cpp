@@ -88,14 +88,24 @@ void test( lua_State* L )
     MyClasses["Enum"] = makeReadonlyProxy( enums );
 
     const char *source =
+        "function dump( t )\n"
+        "  for k,v in pairs( t ) do\n"
+        "    print( k, v )\n"
+        "  end\n"
+        "end\n"
         "function test()\n"
         "  print( 'test()' )\n"
         "  print( MyClasses.Enum.A )\n"
         "  print( MyClasses.Enum.B )\n"
         "  print( MyClasses.Enum.C )\n"
+        "  dump( MyClasses.Enum )\n"
         "end\n"
         "function test2()\n"
         "  print( 'test2()' )\n"
+        "  -- looks like it works but does not mod the table\n"
+        "  rawset( MyClasses.Enum, 'D', 4 )\n"
+        "  table.insert( MyClasses.Enum, 'test')\n"
+        "  dump( MyClasses.Enum )\n"
         "  MyClasses.Enum.A = 5\n"
         "end\n"
         "";
