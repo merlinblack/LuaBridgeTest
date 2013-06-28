@@ -22,12 +22,6 @@ int readonlyTableNext( lua_State* L )
     lua_pushvalue( L, 2 );
     if( lua_next( L, 4 ) )
     {
-        // Is there a better way?
-        //
-        lua_remove( L, 3 ); // Meta table
-        lua_remove( L, 3 ); // Real table
-        lua_remove( L, 2 ); // Input index
-        lua_remove( L, 1 ); // Input table
         return 2;
     }
     else
