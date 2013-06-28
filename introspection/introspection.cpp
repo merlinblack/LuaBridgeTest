@@ -103,7 +103,7 @@ int getClassInfo( lua_State* L )
 
             lua_pop( L, 2 ); // Key copy and value
         }
-        // List property get
+        // List properties
         lua_pushstring( L, "__propget" );
         lua_rawget( L, -2 );
         if( lua_istable( L, -1 ) )

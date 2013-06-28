@@ -36,3 +36,7 @@ How a GUI routing system might be done.
 
 luamemberoveride:
 Using a LuaRef to override a C++ member with a Lua one.
+
+introspection:
+A function that returns a table of class methods, and
+members bound.
