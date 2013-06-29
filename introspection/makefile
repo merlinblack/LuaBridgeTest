@@ -4,11 +4,13 @@
 LIBS=-L$(HOME)/prog/local/lib -llua -ldl
 CXXFLAGS=-g -Wall -Wno-deprecated -I$(HOME)/prog/local/include
 EXECUTABLE=introspection
-SOURCES=introspection.cpp
+SOURCES=introspection.cpp dumpstack.cpp
 OBJDIR=obj
 DEPDIR=deps
 
 # ###################################################################
+
+vpath dumpstack.cpp ../common
 
 .SILENT: $(DEPS) $(DEPDIR) $(OBJDIR) clean
 
