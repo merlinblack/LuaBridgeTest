@@ -8,9 +8,11 @@ using std::endl;
 using luabridge::LuaRef;
 using luabridge::getGlobal;
 
+void dumpstack( lua_State* );
+
 void test( lua_State* L )
 {
-    cout << "Stack top: " << lua_gettop( L ) << endl;
+    dumpstack( L );
 
     const char *source =
         "function test( a, b, c )\n"
@@ -28,15 +30,15 @@ void test( lua_State* L )
         return;
     }
 
-    cout << "Stack top: " << lua_gettop( L ) << endl;
+    dumpstack( L );
 
     LuaRef test = getGlobal( L, "test" );
 
-    cout << "Stack top: " << lua_gettop( L ) << endl;
+    dumpstack( L );
 
     test( 1, 2, 3 );
 
-    cout << "Stack top: " << lua_gettop( L ) << endl;
+    dumpstack( L );
 
     return;
 }

@@ -4,11 +4,13 @@
 LIBS=-L$(HOME)/prog/local/lib -llua -ldl
 CXXFLAGS=-g -Wall -Wno-deprecated -I$(HOME)/prog/local/include
 EXECUTABLE=guiexample
-SOURCES=guiexample.cpp
+SOURCES=guiexample.cpp dumpstack.cpp
 OBJDIR=obj
 DEPDIR=deps
 
 # ###################################################################
+
+vpath dumpstack.cpp ../common
 
 .SILENT: $(DEPS) $(DEPDIR) $(OBJDIR) clean
 
