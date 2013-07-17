@@ -1,3 +1,6 @@
+        Single Class called "Widget" bound directly in global namespace.
+        No members, or anything else bound.
+
 +-----------------------+
 | Global namespace "_G" |
 | Table                 |
@@ -19,7 +22,7 @@
                                     | __class                                             | --+
                                     | __propget   = Lua table                             |   |
                                     | __propset   = Lua table                             |   |
-                                    | __metatable = Lua table                             |   |
+                                    | __metatable = nil                                   |   |
                                     |                                                     |   |
                                     +-----------------------------------------------------+   |
                                                                                               |
@@ -50,7 +53,7 @@
                             |       |                       |  <---+
                             |       +-----------------------+-----------------------------+
                             |       | "getIdentityKey()" = true                           |
-                            |       | __type      = "Widget"                              |
+                            |       | __type      = "const Widget"                        |
                             |       | __index     = C function CFunc::indexMetaMethod     |
                             |       | __newindex  = C function CFunc::newindexMethod      |
                             |       | __propget   = Lua table                             |
