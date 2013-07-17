@@ -1,0 +1,61 @@
++-----------------------+
+| Global namespace "_G" |
+| Table                 |
++-----------------------+
+|                       |           +-----------------------+
+| "Widget"              | --------> | Static Table          |
+|                       |           | Lua Table             |
++-----------------------+           +-----------------------+
+                                                |
+                              +----Metatable----+
+                              |
+                              |     +-----------------------+
+                              +---> | Static Metatable      |
+                                    | Lua Table             |
+                                    |                       |
+                                    +-----------------------+-----------------------------+
+                                    | __index     = C function CFunc::indexMetaMethod     |
+                                    | __newindex  = C function CFunc::newindexMetaMethod  |
+                                    | __class                                             | --+
+                                    | __propget   = Lua table                             |   |
+                                    | __propset   = Lua table                             |   |
+                                    | __metatable = Lua table                             |   |
+                                    |                                                     |   |
+                                    +-----------------------------------------------------+   |
+                                                                                              |
+                            +-----------------------------------------------------------------+
+                            |
+                            |       +-----------------------+
+                            \       | Class Table           |  ----+
+                             +----> | Lua Table             |      | Is it's own metatable.
+                            /       |                       |  <---+
+                            |       +-----------------------+-----------------------------+
+                            |       | "getIdentityKey()" = true                           |
+                            |       | __type      = "Widget"                              |
+                            |       | __index     = C function CFunc::indexMetaMethod     |
+                            |       | __newindex  = C function CFunc::newindexMethod      |
+                            |       | __propget   = Lua table                             |
+                            |       | __propset   = Lua table                             |
+                            |       | __const                                             | --+
+                            |       | __metatable = nil                                   |   |
+                            |       | __gc        = C function CFunc::gcMethod<T>         |   |
+                            |       |                                                     |   |
+                            |       +-----------------------------------------------------+   |
+                            |                                                                 |
+                            |  +--------------------------------------------------------------+
+                            |  |
+                            |  |    +-----------------------+
+                            |  |    | Const Table           |  ----+
+                            |  +--> | Lua Table             |      | Is it's own metatable.
+                            |       |                       |  <---+
+                            |       +-----------------------+-----------------------------+
+                            |       | "getIdentityKey()" = true                           |
+                            |       | __type      = "Widget"                              |
+                            |       | __index     = C function CFunc::indexMetaMethod     |
+                            |       | __newindex  = C function CFunc::newindexMethod      |
+                            |       | __propget   = Lua table                             |
+                            +------ | __class                                             |
+                                    | __metatable = nil                                   |
+                                    | __gc        = C function CFunc::gcMethod<T>         |
+                                    |                                                     |
+                                    +-----------------------------------------------------+
