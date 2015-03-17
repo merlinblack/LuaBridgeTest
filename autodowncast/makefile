@@ -1,12 +1,9 @@
 # Nigels wizzzy "simple" makefile
 # ###################################################################
 #
-LIBS=-L$(HOME)/prog/local/lib -llua -ldl
-CXXFLAGS=-g -Wall -Wno-deprecated -I$(HOME)/prog/local/include
+include ../common/common.mk
 EXECUTABLE=autodowncast
 SOURCES=autodowncast.cpp dumpstack.cpp
-OBJDIR=obj
-DEPDIR=deps
 
 # ###################################################################
 

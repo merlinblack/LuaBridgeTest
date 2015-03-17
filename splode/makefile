@@ -2,8 +2,8 @@
 # ###################################################################
 #
 include ../common/common.mk
-EXECUTABLE=caller
-SOURCES=caller.cpp dumpstack.cpp
+EXECUTABLE=splode
+SOURCES=splode.cpp dumpstack.cpp
 
 # ###################################################################
 
